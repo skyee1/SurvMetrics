@@ -1,0 +1,18 @@
+Package: SurvMetrics
+Type: Package
+Title: Predictive Evaluation Metrics in Survival Analysis
+Version: 0.1.0
+Date: 2021-08-06
+Author: Hanpu Zhou, Xuewei Cheng, Sizheng Wang, Yi Zou, Hong Wang
+Maintainer: Hanpu Zhou <zhouhanpu@csu.edu.cn>
+Description: An implementation of popular evaluation metrics that are commonly used in survival prediction including Concordance Index, Brier Score, IBS, ISE, IAE and MAE. For a detailed information, see Ishwaran H, Kogalur UB, Blackstone EH and Lauer MS (2008) <doi:10.1214/08-AOAS169> ; Moradian H, Larocque D and Bellavance F (2017) <doi:10.1007/s10985-016-9372-1> for different evaluation metrics.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: false
+Imports: survminer, stats, survival, MASS
+RoxygenNote: 7.1.1
+Suggests: knitr, rmarkdown, randomForestSRC, caret, ggplot2, ggpubr, pec
+NeedsCompilation: no
+URL: https://github.com/skyee1/SurvMetrics
+Packaged: 2021-08-06 04:52:32 UTC;
+VignetteBuilder: knitr
