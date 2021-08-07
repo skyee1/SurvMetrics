@@ -14,5 +14,6 @@ RoxygenNote: 7.1.1
 Suggests: knitr, rmarkdown, randomForestSRC, caret, ggplot2, ggpubr, pec
 NeedsCompilation: no
 URL: https://github.com/skyee1/SurvMetrics
+BugReports: https://github.com/skyee1/SurvMetrics/issues
 Packaged: 2021-08-06 04:52:32 UTC;
 VignetteBuilder: knitr
