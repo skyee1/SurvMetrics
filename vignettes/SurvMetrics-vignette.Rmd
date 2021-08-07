@@ -166,7 +166,7 @@ for (i in 1:20) {
   fitcox = coxph(Surv(time, status)~., data = train_data, x = TRUE)
   mat_cox = predictSurvProb(fitcox, test_data, dis_time)
   
-  #calculate the C index
+  #calculate the Brier Score
   med_index = median(1:length(dis_time))
   surv_obj = Surv(test_data$time, test_data$status)
   t_star = median(fitrsf$time.interest)
@@ -219,7 +219,7 @@ for (i in 1:20) {
   fitcox = coxph(Surv(time, status)~., data = train_data, x = TRUE)
   mat_cox = predictSurvProb(fitcox, test_data, dis_time)
   
-  #calculate the C index
+  #calculate the IBS
   med_index = median(1:length(dis_time))
   surv_obj = Surv(test_data$time, test_data$status)
 
@@ -276,16 +276,16 @@ for (i in 1:20) {
   fitcox = coxph(Surv(time, status)~., data = train_data, x = TRUE)
   mat_cox = predictSurvProb(fitcox, test_data, dis_time)
   
-  #calculate the C index
+  #calculate the IAE and ISE
   med_index = median(1:length(dis_time))
   surv_obj = Surv(test_data$time, test_data$status)
   
   
-  #C index for Cox
+  #IAE and ISE for Cox
   temp1 = IAEISE(surv_obj, sp_matrix = mat_cox, dis_time)
   metrics_cox_IAE[i] = temp1[1]
   metrics_cox_ISE[i] = temp1[2]
-  #C index for RSF
+  #IAE and ISE for RSF
   temp2 = IAEISE(surv_obj, sp_matrix = mat_rsf, dis_time)
   metrics_rsf_IAE[i] = temp2[1]
   metrics_rsf_ISE[i] = temp2[2]
