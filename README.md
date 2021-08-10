@@ -1,8 +1,11 @@
 
-# SurvMetrics
+# Description
 
-An implementation of popular evaluation metrics that are commonly used in survival prediction including Concordance Index, Brier Score, IBS, ISE, IAE and MAE. For a detailed information, see Ishwaran H, Kogalur UB, Blackstone EH and Lauer MS (2008) &lt;doi:10.1214/08-AOAS169> ; Moradian H, Larocque D and Bellavance F (2017) &lt;doi:10.1007/s10985-016-9372-1> for different evaluation metrics.
-
+An implementation of popular evaluation metrics that are commonly used in survival prediction 
+  including Concordance Index, Brier Score, Integrated Brier Score, 
+  Integrated Square Error, Integrated Absolute Error and Mean Absolute Error.
+  For a detailed information, see (Ishwaran H, Kogalur UB, Blackstone EH and Lauer MS (2008) [doi:10.1214/08-AOAS169](https://doi.org/10.1214/08-AOAS169)) and
+  (Moradian H, Larocque D and Bellavance F (2017) [doi:10.1007/s10985-016-9372-1](https://doi.org/10.1007/s10985-016-9372-1)) for different evaluation metrics.
 
 ## Installation
 
