@@ -2,6 +2,7 @@
 
 export(Brier)
 export(Cindex)
+export(CindexCR)
 export(Gt)
 export(IAEISE)
 export(IBS)

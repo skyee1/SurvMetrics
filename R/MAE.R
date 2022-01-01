@@ -11,7 +11,7 @@
 #'
 #' @return the value of Mean Absolute Error
 #'
-#' @author Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+#' @author Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 #' @references
 #' Matsuo, K. ,  Purushotham, S. ,  Jiang, B. ,  Mandelbaum, R. S. ,  Takiuchi, T. , &  Liu, Y. , et al. (2018). Survival outcome prediction in cervical cancer: cox models vs deep-learning model. American Journal of Obstetrics & Gynecology.
 #' Coyle, E. J. , &  Lin, J. H. . (1988). Stack filters and the mean absolute error criterion. IEEE Trans Acoustics Speech Signal Processing, 36(8), 1244-1254.

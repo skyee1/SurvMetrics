@@ -1,5 +1,5 @@
 
-# SurvMetrics
+# Description
 
 An implementation of popular evaluation metrics that are commonly used in survival prediction 
   including Concordance Index, Brier Score, Integrated Brier Score, 

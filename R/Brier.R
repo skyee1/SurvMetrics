@@ -20,7 +20,7 @@
 #'
 #' @return the Brier Score at time t_star
 #'
-#' @author Zhou Hanpu \email{zhouhanpu@csu.edu.cn}
+#' @author Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 #' @references
 #' Graf, Erika, Schmoor, Claudia, Sauerbrei, & Willi, et al. (1999). Assessment and comparison of prognostic classification schemes for survival data. Statist. Med., 18(1718), 2529-2545.
 #'

@@ -8,7 +8,7 @@
 #'
 #' @return the simulated dataset
 #'
-#' @author Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+#' @author Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 #' @references
 #' Steingrimsson, J. A. ,  Diao, L. , &  Strawderman, R. L. . (2019). Censoring unbiased regression trees and ensembles. Journal of the American Statistical Association, 114.
 #'

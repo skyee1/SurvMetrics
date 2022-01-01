@@ -20,7 +20,7 @@
 #' @param predicted a vector containing the predicted survival time or probability of each observation.
 #'
 #' @return Estimates of the C-index.
-#' @author Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+#' @author Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 #' @references
 #'
 #' Ishwaran, H. ,  Kogalur, U. B. ,  Blackstone, E. H. , &  Lauer, M. S. . (2008). Random survival forests. Journal of Thoracic Oncology Official Publication of the International Association for the Study of Lung Cancer, 2(12), 841-860.

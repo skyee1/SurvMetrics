@@ -8,7 +8,7 @@
 #'
 #' @return The Kaplan–Meier estimate of the censoring in (0,1).
 #'
-#' @author Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+#' @author Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 #' @references
 #' Graf, Erika, Schmoor, Claudia, Sauerbrei, & Willi, et al. (1999). Assessment and comparison of prognostic classification schemes for survival data. Statist. Med., 18(1718), 2529-2545.
 #'
