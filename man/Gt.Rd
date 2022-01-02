@@ -33,5 +33,5 @@ Graf, Erika, Schmoor, Claudia, Sauerbrei, & Willi, et al. (1999). Assessment and
 Kaplan, E. L. , &  Meier, P. . (1958). Nonparametric estimation from incomplete observations. Journal of the American Statistical Association, 53, 457-481.
 }
 \author{
-Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 }

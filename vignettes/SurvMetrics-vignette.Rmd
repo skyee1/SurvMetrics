@@ -80,13 +80,14 @@ library(randomForestSRC)
 library(survival)  
 library(pec)
 library(ggplot2)
+set.seed(123)
 
 #Initialization
 metrics_cox = 0
 metrics_rsf = 0
 for (i in 1:20) {
   
-  mydata = SDGM4(N = 200, p = 20, c_step = 0.5)
+  mydata = SDGM4(N = 100, p = 20, c_step = 0.2)
   index_data = createFolds(1:nrow(mydata), 2)
   train_data = mydata[index_data[[1]],]
   test_data = mydata[index_data[[2]],]
@@ -151,9 +152,10 @@ Again, take simulation data set 4 as an example. First, we randomly divide the d
 #Initialization
 metrics_cox = 0
 metrics_rsf = 0
-for (i in 1:20) {
+set.seed(123)
+for (i in 1:10) {
   
-  mydata = SDGM4(N = 200, p = 20, c_step = 0.5)
+  mydata = SDGM4(N = 100, p = 20, c_step = 0.5)
   index_data = createFolds(1:nrow(mydata), 2)
   train_data = mydata[index_data[[1]],]
   test_data = mydata[index_data[[2]],]
@@ -179,7 +181,7 @@ for (i in 1:20) {
 }
 
 data_BS = data.frame('BS' = c(metrics_cox, metrics_rsf),
-                     'model' = c(rep('Cox', 20), rep('RSF', 20)))
+                     'model' = c(rep('Cox', 10), rep('RSF', 10)))
 
 ggplot(data_BS, aes(x = model, y = BS, fill = model)) +
   geom_boxplot() +
@@ -204,9 +206,10 @@ Also, we take simulation data set 4 as an example. First, we randomly divide the
 #Initialization
 metrics_cox = 0
 metrics_rsf = 0
-for (i in 1:20) {
+set.seed(123)
+for (i in 1:5) {
   
-  mydata = SDGM4(N = 100, p = 20, c_step = 0.5)
+  mydata = SDGM4(N = 100, p = 20, c_step = -0.5)
   index_data = createFolds(1:nrow(mydata), 2)
   train_data = mydata[index_data[[1]],]
   test_data = mydata[index_data[[2]],]
@@ -232,7 +235,7 @@ for (i in 1:20) {
 }
 
 data_IBS = data.frame('IBS' = c(metrics_cox, metrics_rsf),
-                     'model' = c(rep('Cox', 20), rep('RSF', 20)))
+                     'model' = c(rep('Cox', 5), rep('RSF', 5)))
 
 ggplot(data_IBS, aes(x = model, y = IBS, fill = model)) +
   geom_boxplot() +
@@ -261,9 +264,10 @@ metrics_cox_IAE = 0
 metrics_rsf_IAE = 0
 metrics_cox_ISE = 0
 metrics_rsf_ISE = 0
-for (i in 1:20) {
+set.seed(123)
+for (i in 1:10) {
   
-  mydata = SDGM4(N = 100, p = 20, c_step = 0.5)
+  mydata = SDGM4(N = 100, p = 20, c_step = 0.2)
   index_data = createFolds(1:nrow(mydata), 2)
   train_data = mydata[index_data[[1]],]
   test_data = mydata[index_data[[2]],]
@@ -293,10 +297,10 @@ for (i in 1:20) {
 }
 
 data_IAE = data.frame('IAE' = c(metrics_cox_IAE, metrics_rsf_IAE),
-                     'model' = c(rep('Cox', 20), rep('RSF', 20)))
+                     'model' = c(rep('Cox', 10), rep('RSF', 10)))
 
 data_ISE = data.frame('ISE' = c(metrics_cox_ISE, metrics_rsf_ISE),
-                     'model' = c(rep('Cox', 20), rep('RSF', 20)))
+                     'model' = c(rep('Cox', 10), rep('RSF', 10)))
 
 P1 = ggplot(data_IAE, aes(x = model, y = IAE, fill = model)) +
   geom_boxplot() +

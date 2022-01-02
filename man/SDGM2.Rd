@@ -32,5 +32,5 @@ Zhu, R. , &  Kosorok, M. R. . (2012). Recursively imputed survival trees. Journa
 Ishwaran, H. ,  Kogalur, U. B. ,  Gorodeski, E. Z. ,  Minn, A. J. , &  Lauer, M. S. . (2010). High-dimensional variable selection for survival data. Journal of the American Statistical Association, 105(489), 205-217.
 }
 \author{
-Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 }

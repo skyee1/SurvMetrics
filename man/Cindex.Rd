@@ -63,5 +63,5 @@ proper for the evaluation of-year predicted risks. Biostatistics, 20(2):
 347--357, 2018.
 }
 \author{
-Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 }

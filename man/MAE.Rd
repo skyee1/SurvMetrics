@@ -35,5 +35,5 @@ Matsuo, K. ,  Purushotham, S. ,  Jiang, B. ,  Mandelbaum, R. S. ,  Takiuchi, T. 
 Coyle, E. J. , &  Lin, J. H. . (1988). Stack filters and the mean absolute error criterion. IEEE Trans Acoustics Speech Signal Processing, 36(8), 1244-1254.
 }
 \author{
-Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 }

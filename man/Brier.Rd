@@ -49,5 +49,5 @@ Brier, G. W. (1950). Verification of forecasts expressed in terms of probability
 Gneiting, T. , &  Raftery, A. E. . (2007). Strictly Proper Scoring Rules, Prediction, and Estimation.
 }
 \author{
-Zhou Hanpu \email{zhouhanpu@csu.edu.cn}
+Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 }

@@ -33,32 +33,11 @@ In addition, the corresponding empirical measures are likely to have lower dispe
 }
 \examples{
 library(randomForestSRC)
-library(MASS)
 library(survival)
+library(SurvMetrics)
 set.seed(123)
- N=100
- p = 25
- c.mean = 0.4
- mu = rep(0,p)
- Si = matrix(0,p,p)
- for (i in 1:p) {
-   for (j in 1:p) {
-     Si[i,j] = 0.9^abs(i-j)
-   }
- }
- W = mvrnorm(N,mu,Si)
- Ti = rep(0,N)
- for (i in 1:N) {
-   t.mu = exp(0.1*sum(W[i,1:round(p/2)]))
-   Ti[i] = rexp(1,1/t.mu)
- }
- c.time = rexp(N,c.mean)
- mydata.x = as.data.frame(W)
- mydata.time = data.frame('time'=Ti,'c.time' = c.time,'status' = 0)
- mydata.time$status = ifelse(mydata.time$time < mydata.time$c.time,1,0)
- mydata.time$time = apply(mydata.time[,1:2],1,min)
- mydata = data.frame('time' = mydata.time$time,'status' = mydata.time$status,W)
-
+N = 100
+mydata = SDGM4(N, p = 20, c_step = -0.5)
 index.train = sample(1:N,2/3*N)
 data.train = mydata[index.train,]
 data.test = mydata[-index.train,]
@@ -70,9 +49,10 @@ sp_matrix = predicted$survival
 object = Surv(data.test$time,data.test$status)
 
 #the default time points
-IBS(object,sp_matrix)
+IBS(object, sp_matrix, predicted$time.interest)
 #a time range
 IBS(object,sp_matrix,c(18:100))
+
 
 }
 \references{
@@ -85,5 +65,5 @@ Brier, G. W. . (1950). Verification of forecasts expressed in terms of probabili
 Gneiting, T. , &  Raftery, A. E. . (2007). Strictly Proper Scoring Rules, Prediction, and Estimation.
 }
 \author{
-Zhou HanPu \email{zhouhanpu@csu.edu.cn}
+Hanpu Zhou \email{zhouhanpu@csu.edu.cn}
 }
