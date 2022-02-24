@@ -40,11 +40,12 @@
 #' data.test = mydata[-index.train,]
 #'
 #' time_interest = sort(data.train$time[data.train$status == 1])
-#' sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)), decreasing = T), nrow = nrow(data.test))
+#' sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)),
+#'   decreasing = TRUE), nrow = nrow(data.test))
 #' object = Surv(data.test$time, data.test$status)
 #'
 #' #the default time points
-#' IBS(object, sp_matrix, predicted$time.interest)
+#' IBS(object, sp_matrix, time_interest)
 #' #a time range
 #' IBS(object, sp_matrix, c(18:100))
 #'

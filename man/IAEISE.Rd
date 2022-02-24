@@ -28,7 +28,6 @@ HooraMoradian, DenisLarocque, & FranoisBellavance. (2017). \\(l_1\\) splitting r
 Kowalczuk, & Z. (1998). Integrated squared error and integrated absolute error in recursive identification of continuous-time plants. Control 98 Ukacc International Conference on (Vol.1998, pp.693-698). IET.
 #' @examples
 
-library(randomForestSRC)
 library(survival)
 library(SurvMetrics)
 set.seed(123)
@@ -38,16 +37,15 @@ index.train = sample(1:N,2/3*N)
 data.train = mydata[index.train,]
 data.test = mydata[-index.train,]
 
-fit.RSF = rfsrc(Surv(time,status)~.,data.train,nsplit=3,ntree=500)
-predicted = predict(fit.RSF,data.test)
-sp_matrix = predicted$survival
-
+time_interest = sort(data.train$time[data.train$status == 1])
+sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)),
+  decreasing = TRUE), nrow = nrow(data.test))
 object = Surv(data.test$time,data.test$status)
 
 #a vector for all the distinct time
-IAEISE(object, sp_matrix, predicted$time.interest)
+IAEISE(object, sp_matrix, time_interest)
 #a range
-IAEISE(object,sp_matrix,c(12,350))
+IAEISE(object, sp_matrix, c(12,350))
 }
 \author{
 Hanpu Zhou \email{zhouhanpu@csu.edu.cn}

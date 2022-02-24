@@ -28,7 +28,8 @@
 #' data.test = mydata[-index.train,]
 #'
 #' time_interest = sort(data.train$time[data.train$status == 1])
-#' sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)), decreasing = T), nrow = nrow(data.test))
+#' sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)),
+#'   decreasing = TRUE), nrow = nrow(data.test))
 #' object = Surv(data.test$time,data.test$status)
 #'
 #' #a vector for all the distinct time
