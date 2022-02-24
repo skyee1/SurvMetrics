@@ -83,3 +83,8 @@ This is a resubmission. In this version(0.4.0) I have:
 
 * A new evaluation index is added:concordance index for competing risk.
 
+## Resubmission
+
+This is a resubmission. In this version(0.4.5) I have:
+
+* Optimize package Imports according to CRAN's Suggests.

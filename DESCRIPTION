@@ -1,7 +1,7 @@
 Package: SurvMetrics
 Type: Package
 Title: Predictive Evaluation Metrics in Survival Analysis
-Version: 0.4.0
+Version: 0.4.5
 Date: 2022-01-01
 Authors@R: c(
               person("Hanpu", "Zhou", role = c("aut", "cre"), email = "zhouhanpu@csu.edu.cn"),
@@ -26,7 +26,7 @@ Encoding: UTF-8
 LazyData: false
 Imports: survminer, stats, survival, MASS
 RoxygenNote: 7.1.1
-Suggests: knitr, rmarkdown, randomForestSRC, caret, ggplot2, ggpubr, pec
+Suggests: knitr, rmarkdown, caret, ggplot2, ggpubr, pec
 NeedsCompilation: no
 URL: https://github.com/skyee1/SurvMetrics
 BugReports: https://github.com/skyee1/SurvMetrics/issues

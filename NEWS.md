@@ -35,6 +35,6 @@ Reduce the running time of the Examples
 
 A new evaluation index is added:concordance index for competing risk
 
+# SurvMetrics 0.4.5
 
-
-
+Optimize package Imports according to CRAN's Suggests
