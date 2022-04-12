@@ -16,7 +16,8 @@
 #' Marron, J. S. , &  Wand, M. P. . (1992). Exact mean integrated squared error. Annals of Statistics, 20(2), 712-736.
 #' HooraMoradian, DenisLarocque, & FranoisBellavance. (2017). \\(l_1\\) splitting rules in survival forests. Lifetime Data Analysis, 23(4), 671–691.
 #' Kowalczuk, & Z. (1998). Integrated squared error and integrated absolute error in recursive identification of continuous-time plants. Control 98 Ukacc International Conference on (Vol.1998, pp.693-698). IET.
-#' #' @examples
+#'
+#' @examples
 #'
 #' library(survival)
 #' library(SurvMetrics)
