@@ -2,19 +2,31 @@
 % Please edit documentation in R/Brier.R
 \name{Brier}
 \alias{Brier}
-\title{Brier}
+\title{The Brier Score}
 \usage{
-Brier(object, pre_sp, t_star)
+Brier(object, pre_sp, t_star = -1)
 }
 \arguments{
-\item{object}{object of class \code{Surv} in the testing set created by Surv function.}
+\item{object}{object of class \code{Surv} created by Surv function
+or a fitted survival model, including the survival model
+fitted by \code{coxph}, \code{survreg}, and \code{rfsrc}.}
 
-\item{pre_sp}{a vector of predicted values of survival probabilities of each observation in testing set at time t_star.}
+\item{pre_sp}{If the input of the parameter \code{object} is a fitted survival model,
+this parameter should be a survival dataset on which
+you want to caculate the Brier Score of the fitted model.
+Or with an object of class \code{Surv} as the parameter \code{object},
+it should be a vector of predicted values of survival probabilities
+of each observation in testing set at time t_star.}
 
-\item{t_star}{the timepoint at which the Brier score you want to calculate.}
+\item{t_star}{the timepoint at which the Brier Score you want to calculate.
+If the input of the parameter \code{object} is a fitted survival model, the timepoint is necessary to be specified
+at which the survival probability is predicted,
+and this function will calculate the Brier Score at that moment.
+If the input object is a survival object, this parameter can be ignored
+and the value of this parameter will not have any effect on the result of this fuction.}
 }
 \value{
-the Brier Score at time t_star
+the Brier Score at time t_star between the true classes and the predicted probabilities.
 }
 \description{
 The Brier Score was proposed by Glenn W. Brier in 1950 which is a proper score function that measures the accuracy of probabilistic predictions, usually used to measure the accuracy of a model fit for survival data.
@@ -34,11 +46,11 @@ Judging from the sparse empirical evidence, predictions of duration of survival 
 }
 \examples{
 library(survival)
-time = rexp(50)
-status = sample(c(0,1),50,replace = TRUE)
-pre_sp = runif(50)
-t_star = runif(1)
-Brier(Surv(time,status),pre_sp,t_star)
+time <- rexp(50)
+status <- sample(c(0, 1), 50, replace = TRUE)
+pre_sp <- runif(50)
+t_star <- runif(1)
+Brier(Surv(time, status), pre_sp, t_star)
 
 }
 \references{

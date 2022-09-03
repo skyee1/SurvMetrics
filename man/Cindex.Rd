@@ -2,17 +2,29 @@
 % Please edit documentation in R/Cindex.R
 \name{Cindex}
 \alias{Cindex}
-\title{Concordance index for right censored survival time data}
+\title{The Concordance Index for Right-Censored Survival Time Data}
 \usage{
-Cindex(object, predicted)
+Cindex(object, predicted, t_star = -1)
 }
 \arguments{
-\item{object}{object of class \code{Surv} created by Surv function.}
+\item{object}{object of class \code{Surv} created by Surv function
+or a fitted survival model, including the survival model
+fitted by \code{coxph}, \code{survreg}, and \code{rfsrc}.}
 
-\item{predicted}{a vector containing the predicted survival time or probability of each observation.}
+\item{predicted}{If the input of the parameter \code{object} is a fitted survival model,
+this parameter should be a survival dataset on which you want to caculate the C-index of the fitted model.
+Or with an object of class \code{Surv} as the parameter \code{object},
+it should be a vector containing the predicted survival time or probability of each observation.}
+
+\item{t_star}{the timepoint at which the C-index you want to calculate.
+If the input of the parameter \code{object} is a fitted survival model, the timepoint is necessary to be specified
+at which the survival probability is predicted,
+and this function will calculate the C-index between the survival time and the predicted result at that moment.
+If the input object is a survival object, this parameter can be ignored
+and the value of this parameter will not have any effect on the result of this fuction.}
 }
 \value{
-Estimates of the C-index.
+Estimates of the C-index between the survival time and the predicted result.
 }
 \description{
 Concordance index is a rank correlation measures between a variable X and a possibly
@@ -34,10 +46,10 @@ package (see examples).
 }
 \examples{
 library(survival)
-time = c(1,1,2,2,2,2,2,2)
-status = c(0,1,1,0,1,1,0,1)
-predicted = c(2,3,3,3,4,2,4,3)
-Cindex(Surv(time,status),predicted)
+time <- c(1, 1, 2, 2, 2, 2, 2, 2)
+status <- c(0, 1, 1, 0, 1, 1, 0, 1)
+predicted <- c(2, 3, 3, 3, 4, 2, 4, 3)
+Cindex(Surv(time, status), predicted)
 
 }
 \references{

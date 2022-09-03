@@ -2,20 +2,25 @@
 % Please edit documentation in R/IAEISE.R
 \name{IAEISE}
 \alias{IAEISE}
-\title{IAEISE}
+\title{The Integrate Absolute Error and The Integrate Square Error}
 \usage{
-IAEISE(object, sp_matrix, IRange = range(object[, 1]))
+IAEISE(object, sp_matrix, IRange = c(-2, -1))
 }
 \arguments{
-\item{object}{object of class \code{Surv} on the testing set created by Surv function.}
+\item{object}{object of class \code{Surv} created by Surv function
+or a fitted survival model, including the survival model
+fitted by \code{coxph}, \code{survreg}, and \code{rfsrc}.}
 
-\item{sp_matrix}{a matrix of predicted values of survival probabilities for the testing set.}
+\item{sp_matrix}{a matrix or data.frame of predicted values of survival probabilities for the testing set.
+rows denote different samples, columns denote different time points,
+and the values in row i and column j of the matrix denote the predicted survival probability
+of the ith sample at the time point corresponding to the jth column.}
 
 \item{IRange}{a vector contains all discrete time points corresponding to the predicted probability in sp_matrix.
 Or the scale you want to get the IAE and ISE;  .}
 }
 \value{
-Estimates of the IAE and ISE
+Estimates of the Integrate Absolute Error and the Integrate Square Error of the predicted values of survival probabilities.
 }
 \description{
 Two ways of the continuous-time approach to continuous-time identification based on least-squares and least-absolute errors are proposed.
@@ -27,22 +32,22 @@ Lower values of IAE or ISE indicate better performances.
 library(survival)
 library(SurvMetrics)
 set.seed(123)
-N = 100
-mydata = SDGM4(N, p = 20, c_step = -0.5)
-index.train = sample(1:N,2/3*N)
-data.train = mydata[index.train,]
-data.test = mydata[-index.train,]
+N <- 100
+mydata <- SDGM4(N, p = 20, c_step = -0.5)
+index.train <- sample(1:N, 2 / 3 * N)
+data.train <- mydata[index.train, ]
+data.test <- mydata[-index.train, ]
 
-time_interest = sort(data.train$time[data.train$status == 1])
-sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)),
-  decreasing = TRUE), nrow = nrow(data.test))
-object = Surv(data.test$time,data.test$status)
+time_interest <- sort(data.train$time[data.train$status == 1])
+sp_matrix <- matrix(sort(runif(nrow(data.test) * length(time_interest)),
+  decreasing = TRUE
+), nrow = nrow(data.test))
+object <- Surv(data.test$time, data.test$status)
 
-#a vector for all the distinct time
+# a vector for all the distinct time
 IAEISE(object, sp_matrix, time_interest)
-#a range
-IAEISE(object, sp_matrix, c(12,350))
-
+# a range
+IAEISE(object, sp_matrix, c(12, 350))
 
 }
 \references{

@@ -2,20 +2,26 @@
 % Please edit documentation in R/IBS.R
 \name{IBS}
 \alias{IBS}
-\title{IBS}
+\title{The Integration of the Brier Score}
 \usage{
-IBS(object, sp_matrix, IBSrange = range(object[, 1]))
+IBS(object, sp_matrix, IBSrange = c(-2, -1))
 }
 \arguments{
-\item{object}{object of class \code{Surv} in the testing set created by Surv function.}
+\item{object}{object of class \code{Surv} created by Surv function
+or a fitted survival model, including the survival model
+fitted by \code{coxph}, \code{survreg}, and \code{rfsrc}.}
 
-\item{sp_matrix}{a matrix or data.frame of predicted values of survival probabilities for the testing set.}
+\item{sp_matrix}{a matrix or data.frame of predicted values of survival probabilities for the testing set.
+Rows denote different samples, columns denote different time points,
+and the values in entry (i,j) of the matrix denote the predicted survival probability
+of the ith sample at the time point corresponding to the jth column.}
 
 \item{IBSrange}{a vector contains all discrete time points corresponding to the predicted probability in sp_matrix.
 Or the scale you want to get the IBS; and if it is a single point the return value will be the Brier Score at the timepoint.}
 }
 \value{
-The integration of brierscore
+The integration of the Brier score of the predicted values of survival probabilities
+on the discrete time points or the time scale of interest to users.
 }
 \description{
 IBS is  an integrated version of the Brier which is used to calculate the integration of the Brier Score.
@@ -35,22 +41,22 @@ In addition, the corresponding empirical measures are likely to have lower dispe
 library(survival)
 library(SurvMetrics)
 set.seed(123)
-N = 100
-mydata = SDGM4(N, p = 20, c_step = -0.5)
-index.train = sample(1:N,2/3*N)
-data.train = mydata[index.train,]
-data.test = mydata[-index.train,]
+N <- 100
+mydata <- SDGM4(N, p = 20, c_step = -0.5)
+index.train <- sample(1:N, 2 / 3 * N)
+data.train <- mydata[index.train, ]
+data.test <- mydata[-index.train, ]
 
-time_interest = sort(data.train$time[data.train$status == 1])
-sp_matrix = matrix(sort(runif(nrow(data.test)*length(time_interest)),
-  decreasing = TRUE), nrow = nrow(data.test))
-object = Surv(data.test$time, data.test$status)
+time_interest <- sort(data.train$time[data.train$status == 1])
+sp_matrix <- matrix(sort(runif(nrow(data.test) * length(time_interest)),
+  decreasing = TRUE
+), nrow = nrow(data.test))
+object <- Surv(data.test$time, data.test$status)
 
-#the default time points
+# the default time points
 IBS(object, sp_matrix, time_interest)
-#a time range
+# a time range
 IBS(object, sp_matrix, c(18:100))
-
 
 }
 \references{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/SDGM4.R
 \name{SDGM4}
 \alias{SDGM4}
-\title{SDGM4}
+\title{Survival Data Generation Method 4}
 \usage{
 SDGM4(N = 200, p = 15, c_step = 0.4)
 }
@@ -20,7 +20,7 @@ the simulated dataset
 Survival data generation method. An example of the proportional hazards model where in the Cox model is expected to perform best.
 }
 \examples{
-SDGM4(N=200, p = 15, c_step = 0.4)
+SDGM4(N = 200, p = 15, c_step = 0.4)
 
 }
 \references{

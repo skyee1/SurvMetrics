@@ -2,7 +2,7 @@
 % Please edit documentation in R/Gt.R
 \name{Gt}
 \alias{Gt}
-\title{Gt}
+\title{The Kaplan-Meier Estimate of the Censoring Distribution}
 \usage{
 Gt(object, timepoint)
 }
@@ -12,7 +12,7 @@ Gt(object, timepoint)
 \item{timepoint}{any point in time you want to get the Kaplan–Meier estimate of the censoring.}
 }
 \value{
-The Kaplan–Meier estimate of the censoring in (0,1).
+The Kaplan–Meier estimate of the censoring distribution and the value of G(t) is between 0 and 1.
 }
 \description{
 G(t)=P(C>t) denote the Kaplan-Meier estimate of the censoring distribution which is used to adjust for censoring.
@@ -20,11 +20,11 @@ Gt is used to calculate G(t) at any timepoint you want.
 }
 \examples{
 library(survival)
-time = rexp(50)
-status = sample(c(0,1),50,replace = TRUE)
-pre_sp = runif(50)
-timepoint = runif(1)
-Gt(Surv(time,status),timepoint)
+time <- rexp(50)
+status <- sample(c(0, 1), 50, replace = TRUE)
+pre_sp <- runif(50)
+timepoint <- runif(1)
+Gt(Surv(time, status), timepoint)
 
 }
 \references{

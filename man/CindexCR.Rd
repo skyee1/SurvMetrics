@@ -22,10 +22,10 @@ Estimates of the C-index in the presence of competing risks.
 The C-index (Concordance index) of the prognostic model in the presence of competing risks according to Marcel, W et al.(2014).
 }
 \examples{
-time = c(4, 7, 5, 8)
-status = rep(1, 4)
-predicted = c(3, 5, 7, 10)
-Cause_int = 1
+time <- c(4, 7, 5, 8)
+status <- rep(1, 4)
+predicted <- c(3, 5, 7, 10)
+Cause_int <- 1
 CindexCR(time, status, predicted, Cause_int)
 
 }

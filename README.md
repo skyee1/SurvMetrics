@@ -27,9 +27,20 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(SurvMetrics)
 library(survival)
-time = c(1,1,2,2,2,2,2,2)
-status = c(0,1,1,0,1,1,0,1)
-predicted = c(2,3,3,3,4,2,4,3)
-Cindex(Surv(time,status),predicted)
+time = c(1, 1, 2, 2, 2, 2, 2, 2)
+status = c(0, 1, 1, 0, 1, 1, 0, 1)
+predicted = c(2, 3, 3, 3, 4, 2, 4, 3)
+Cindex(Surv(time, status), predicted)
 ```
 
+## Citation
+If you use SurvMetrics in your research and we would greatly appreciate if you could use the following:
+```
+@Manual{,
+    title = {SurvMetrics: Predictive Evaluation Metrics in Survival Analysis},
+    author = {Hanpu Zhou and Xuewei Cheng and Sizheng Wang and Yi Zou and Hong Wang},
+    year = {2022},
+    note = {R package version 0.5.0},
+    url = {https://github.com/skyee1/SurvMetrics},
+  }
+```

@@ -1,4 +1,4 @@
-#' SDGM4
+#'  Survival Data Generation Method 4
 #'
 #' Survival data generation method. An example of the proportional hazards model where in the Cox model is expected to perform best.
 #'
@@ -17,48 +17,48 @@
 #' Ishwaran, H., Kogalur, U. B., Gorodeski, E.Z., Minn, A.J., & Lauer, M. S. . (2010). High-dimensional variable selection for survival data. Journal of the American Statistical Association, 105(489), 205-217.
 #'
 #' @examples
-#' SDGM4(N=200, p = 15, c_step = 0.4)
+#' SDGM4(N = 200, p = 15, c_step = 0.4)
 #'
 #' @importFrom MASS mvrnorm
 #' @importFrom stats rnorm
 #'
 #' @export
 #'
-SDGM4 <- function(N=200, p = 15, c_step = 0.4){
-  finalcenrate = rep(0,20)
+SDGM4 <- function(N = 200, p = 15, c_step = 0.4) {
+  finalcenrate <- rep(0, 20)
   for (repnum in 1:20) {
-    mu = rep(0,p)
-    Si = matrix(0,p,p)
+    mu <- rep(0, p)
+    Si <- matrix(0, p, p)
     for (i in 1:p) {
       for (j in 1:p) {
-        Si[i,j] = 0.75^abs(i-j)
+        Si[i, j] <- 0.75^abs(i - j)
       }
     }
-    W = mvrnorm(N,mu,Si)
-    Ti.log = rep(0,N)
-    Ti = rep(0,N)
-    c.log = rep(0,N)
-    c.time = rep(0,N)
+    W <- mvrnorm(N, mu, Si)
+    Ti.log <- rep(0, N)
+    Ti <- rep(0, N)
+    c.log <- rep(0, N)
+    c.time <- rep(0, N)
     for (i in 1:N) {
-      t.mu = 0.1*abs(sum(W[i,1:round(p/5)]))+
-        0.1*abs(sum(W[i,(round(4*p/5)+1):p]))
-      Ti.log[i] = rnorm(1,t.mu,1)
-      Ti[i] = exp(Ti.log[i])
-      c.mu = t.mu + c_step
-      c.log[i] = rnorm(1,c.mu,1)
-      c.time[i] = exp(c.log[i])
+      t.mu <- 0.1 * abs(sum(W[i, 1:round(p / 5)])) +
+        0.1 * abs(sum(W[i, (round(4 * p / 5) + 1):p]))
+      Ti.log[i] <- rnorm(1, t.mu, 1)
+      Ti[i] <- exp(Ti.log[i])
+      c.mu <- t.mu + c_step
+      c.log[i] <- rnorm(1, c.mu, 1)
+      c.time[i] <- exp(c.log[i])
     }
 
-    mydata.x = as.data.frame(W)
-    mydata.time = data.frame('time'=Ti,'c.time' = c.time,'status' = 0)
-    mydata.time$status = ifelse(mydata.time$time < mydata.time$c.time,1,0)
-    mydata.time$time = apply(mydata.time[,1:2],1,min)
+    mydata.x <- as.data.frame(W)
+    mydata.time <- data.frame("time" = Ti, "c.time" = c.time, "status" = 0)
+    mydata.time$status <- ifelse(mydata.time$time < mydata.time$c.time, 1, 0)
+    mydata.time$time <- apply(mydata.time[, 1:2], 1, min)
 
-    mydata0 = data.frame('time' = mydata.time$time,'status' = mydata.time$status,W)
-    cen.rate = 1 - sum(mydata0$status)/N
-    finalcenrate[repnum] = cen.rate
-}
+    mydata0 <- data.frame("time" = mydata.time$time, "status" = mydata.time$status, W)
+    cen.rate <- 1 - sum(mydata0$status) / N
+    finalcenrate[repnum] <- cen.rate
+  }
 
-print(paste("censoring rate is:",round(mean(finalcenrate),3)))
-return(mydata0)
+  print(paste("censoring rate is:", round(mean(finalcenrate), 3)))
+  return(mydata0)
 }

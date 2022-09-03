@@ -2,7 +2,7 @@
 % Please edit documentation in R/SDGM1.R
 \name{SDGM1}
 \alias{SDGM1}
-\title{SDGM1}
+\title{Survival Data Generation Method 1}
 \usage{
 SDGM1(N = 200, p = 15, c_mean = 0.4)
 }
@@ -20,7 +20,7 @@ the simulated dataset
 Survival data generation method. An example of the proportional hazards model where in the Cox model is expected to perform best.
 }
 \examples{
-SDGM1(N=200, p = 15, c_mean = 0.4)
+SDGM1(N = 200, p = 15, c_mean = 0.4)
 
 }
 \references{
